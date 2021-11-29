@@ -16,10 +16,10 @@ function App() {
                   <Switch>
                       <Route exact path="/" component={CustomersComponent}/>
                       <Route exact path="/customers" component={CustomersComponent}/>
-<<<<<<< HEAD
-=======
+
+
                       <Route exact path="/products" component={ProductComponent}/>
->>>>>>> components
+
 
                   </Switch>
                 </div>
