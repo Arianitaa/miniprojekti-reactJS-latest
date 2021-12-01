@@ -5,6 +5,7 @@ import CustomersComponent from "./components/Customers.component";
 import HeaderComponent from "./components/Header.component";
 import FooterComponent from "./components/Footer.component";
 import ProductComponent from "./components/Product.component";
+import AddCustomerComponent from "./components/AddCustomer.component";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
 
                       <Route exact path="/products" component={ProductComponent}/>
+                      <Route exact path="/add-customer" component={AddCustomerComponent}/>
 
 
                   </Switch>
