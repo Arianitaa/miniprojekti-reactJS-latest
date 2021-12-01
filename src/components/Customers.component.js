@@ -8,11 +8,14 @@ class CustomersComponent extends Component {
         this.state = {
             customers: []
         }
+      this.addCustomer = this.addCustomer.bind(this);
     }
 
     componentDidMount() {
     }
-
+    addCustomer(){
+        this.props.history.push('/add-customer');
+    }
 
     deleteCustomer(id) {
         Swal.fire({
@@ -32,7 +35,7 @@ class CustomersComponent extends Component {
             <div>
                 <h2 className="text-center">Customers List</h2>
                 <div className="d-flex justify-content-between">
-                    <button className="btn btn-success" >
+                    <button className="btn btn-success"  onClick={this.addCustomer}>
                         Add Customer
                     </button>
                     <input
