@@ -5,4 +5,4 @@ class ProductDataServices {
         return http.get("/products");
     }
 }
-export default new ProductDataServices;
+export default new ProductDataServices();
