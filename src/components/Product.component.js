@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ProductDataService from '../services/product.service'
+import ProductDataService from '../services/Products.services'
 
 class ProductComponent extends Component{
     constructor(props) {
@@ -12,7 +12,7 @@ class ProductComponent extends Component{
     componentDidMount() {
         ProductDataService.getProducts().then((res)=>{
             this.setState({products: res.data});
-        })
+        });
 
     }
 
@@ -22,26 +22,29 @@ class ProductComponent extends Component{
                 <h2 className="text-center">Products List</h2>
                 <div className="row">
                     <table className="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Identification</th>
-                        <th>Label</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr>
+                            <th>Identification</th>
+                            <th>Label</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            this.state.products.map(
+                                product =>
+                                    <tr key={product.id}>
+                                        <td>{product.id}</td>
+                                        <td>{product.label}</td>
+                                        <td>{product.description}</td>
+                                        <td>{product.price}</td>
 
-                    <tbody>
-
-                    <tr>
-                        <td>12345</td>
-                        <td>Emri i produktit</td>
-                        <td>Pershkrimi i produktit</td>
-                        <td>123 EUR</td>
-                    </tr>
-
-                    </tbody>
-                </table>
+                                    </tr>
+                            )
+                        }
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
