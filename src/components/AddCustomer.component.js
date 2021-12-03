@@ -26,9 +26,7 @@ function AddCustomerComponent(props) {
     const formik = useFormik({
         onSubmit: (values) => {
 
-            CustomersDataService.addCustomer(customer).then(res => {
-                props.history.push("/customers");
-            })
+
 
             let customer = {
                 firstName: values.firstName,
@@ -46,6 +44,9 @@ function AddCustomerComponent(props) {
                     zipCode: values.zipCode,
                 }
             }
+            CustomersDataService.addCustomer(customer).then(res => {
+                props.history.push("*/customers");
+            })
         },
 
         initialValues: {
