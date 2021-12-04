@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-=======
+
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import {CustomersDataService} from "../services/Customers.services"
-
->>>>>>> components
-
+import {CustomersDataService} from "../services/Customers.services";
 function AddCustomerComponent(props) {
 
     console.log(props)
