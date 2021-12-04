@@ -1,4 +1,3 @@
-
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {CustomersDataService} from "../services/Customers.services"
@@ -6,7 +5,7 @@ import {CustomersDataService} from "../services/Customers.services"
 
 function AddCustomerComponent(props) {
 
-
+    console.log(props)
 
     const validationSchema = yup.object({
         firstName: yup.string().required('This is a required Field.'),
@@ -24,31 +23,6 @@ function AddCustomerComponent(props) {
     })
 
     const formik = useFormik({
-        onSubmit: (values) => {
-
-
-
-            let customer = {
-                firstName: values.firstName,
-                lastName: values.lastName,
-                birthdate: values.birthDate,
-                jobTitle: values.jobTitle,
-                category: values.category,
-                emailAddress: values.emailAddress,
-                customerAddress: {
-                    street: values.street,
-                    houseNumber: values.houseNumber,
-                    state: values.state,
-                    country: values.country,
-                    city: values.city,
-                    zipCode: values.zipCode,
-                }
-            }
-            CustomersDataService.addCustomer(customer).then(res => {
-                props.history.push("*/customers");
-            })
-        },
-
         initialValues: {
             firstName: '',
             lastName: '',
@@ -62,6 +36,24 @@ function AddCustomerComponent(props) {
             country: '',
             city: '',
             zipCode: '',
+        },
+
+        onSubmit: (values) => {
+            console.log(values);
+
+            let customer = {firstName: values.firstName, lastName: values.lastName,
+                birthdate: values.birthDate, jobTitle: values.jobTitle,
+                category: values.category, emailAddress: values.emailAddress,
+                customerAddress: {
+                    street: values.street, houseNumber: values.houseNumber, state: values.state,
+                    country: values.country, city: values.city, zipCode: values.zipCode,
+                }
+
+            }
+
+            CustomersDataService.addCustomer(customer).then(res => {
+                props.history.push("/customers");
+            })
         },
 
         validationSchema
